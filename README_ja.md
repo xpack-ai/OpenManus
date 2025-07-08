@@ -13,15 +13,15 @@
 
 # 👋 OpenManus
 
-Manusは素晴らしいですが、OpenManusは*招待コード*なしでどんなアイデアも実現できます！🛫
+Manus は素晴らしいですが、OpenManus は*招待コード*なしでどんなアイデアも実現できます！🛫
 
-私たちのチームメンバー [@Xinbin Liang](https://github.com/mannaandpoem) と [@Jinyu Xiang](https://github.com/XiangJinyu)（主要開発者）、そして [@Zhaoyang Yu](https://github.com/MoshiQAQ)、[@Jiayi Zhang](https://github.com/didiforgithub)、[@Sirui Hong](https://github.com/stellaHSR) は [@MetaGPT](https://github.com/geekan/MetaGPT) から来ました。プロトタイプは3時間以内に立ち上げられ、継続的に開発を進めています！
+私たちのチームメンバー [@Xinbin Liang](https://github.com/mannaandpoem) と [@Jinyu Xiang](https://github.com/XiangJinyu)（主要開発者）、そして [@Zhaoyang Yu](https://github.com/MoshiQAQ)、[@Jiayi Zhang](https://github.com/didiforgithub)、[@Sirui Hong](https://github.com/stellaHSR) は [@MetaGPT](https://github.com/geekan/MetaGPT) から来ました。プロトタイプは 3 時間以内に立ち上げられ、継続的に開発を進めています！
 
 これはシンプルな実装ですので、どんな提案、貢献、フィードバックも歓迎します！
 
-OpenManusで自分だけのエージェントを楽しみましょう！
+OpenManus で自分だけのエージェントを楽しみましょう！
 
-また、UIUCとOpenManusの研究者が共同開発した[OpenManus-RL](https://github.com/OpenManus/OpenManus-RL)をご紹介できることを嬉しく思います。これは強化学習（RL）ベース（GRPOなど）のLLMエージェントチューニング手法に特化したオープンソースプロジェクトです。
+また、UIUC と OpenManus の研究者が共同開発した[OpenManus-RL](https://github.com/OpenManus/OpenManus-RL)をご紹介できることを嬉しく思います。これは強化学習（RL）ベース（GRPO など）の LLM エージェントチューニング手法に特化したオープンソースプロジェクトです。
 
 ## プロジェクトデモ
 
@@ -29,11 +29,11 @@ OpenManusで自分だけのエージェントを楽しみましょう！
 
 ## インストール方法
 
-インストール方法は2つ提供しています。方法2（uvを使用）は、より高速なインストールと優れた依存関係管理のため推奨されています。
+インストール方法は 2 つ提供しています。方法 2（uv を使用）は、より高速なインストールと優れた依存関係管理のため推奨されています。
 
-### 方法1：condaを使用
+### 方法 1：conda を使用
 
-1. 新しいconda環境を作成します：
+1. 新しい conda 環境を作成します：
 
 ```bash
 conda create -n open_manus python=3.12
@@ -43,7 +43,7 @@ conda activate open_manus
 2. リポジトリをクローンします：
 
 ```bash
-git clone https://github.com/FoundationAgents/OpenManus.git
+git clone https://github.com/xpack-ai/OpenManus.git
 cd OpenManus
 ```
 
@@ -53,9 +53,9 @@ cd OpenManus
 pip install -r requirements.txt
 ```
 
-### 方法2：uvを使用（推奨）
+### 方法 2：uv を使用（推奨）
 
-1. uv（高速なPythonパッケージインストーラーと管理機能）をインストールします：
+1. uv（高速な Python パッケージインストーラーと管理機能）をインストールします：
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -64,7 +64,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 2. リポジトリをクローンします：
 
 ```bash
-git clone https://github.com/FoundationAgents/OpenManus.git
+git clone https://github.com/xpack-ai/OpenManus.git
 cd OpenManus
 ```
 
@@ -84,13 +84,14 @@ uv pip install -r requirements.txt
 ```
 
 ### ブラウザ自動化ツール（オプション）
+
 ```bash
 playwright install
 ```
 
 ## 設定
 
-OpenManusを使用するには、LLM APIの設定が必要です。以下の手順に従って設定してください：
+OpenManus を使用するには、LLM API の設定が必要です。以下の手順に従って設定してください：
 
 1. `config`ディレクトリに`config.toml`ファイルを作成します（サンプルからコピーできます）：
 
@@ -98,7 +99,7 @@ OpenManusを使用するには、LLM APIの設定が必要です。以下の手�
 cp config/config.example.toml config/config.toml
 ```
 
-2. `config/config.toml`を編集してAPIキーを追加し、設定をカスタマイズします：
+2. `config/config.toml`を編集して API キーを追加し、設定をカスタマイズします：
 
 ```toml
 # グローバルLLM設定
@@ -118,7 +119,7 @@ api_key = "sk-..."  # 実際のAPIキーに置き換えてください
 
 ## クイックスタート
 
-OpenManusを実行する一行コマンド：
+OpenManus を実行する一行コマンド：
 
 ```bash
 python main.py
@@ -127,6 +128,7 @@ python main.py
 その後、ターミナルからプロンプトを入力してください！
 
 MCP ツールバージョンを使用する場合は、以下を実行します：
+
 ```bash
 python run_mcp.py
 ```
@@ -139,7 +141,7 @@ python run_flow.py
 
 ## カスタムマルチエージェントの追加
 
-現在、一般的なOpenManusエージェントに加えて、データ分析とデータ可視化タスクに適したDataAnalysisエージェントが組み込まれています。このエージェントを`config.toml`の`run_flow`に追加することができます。
+現在、一般的な OpenManus エージェントに加えて、データ分析とデータ可視化タスクに適した DataAnalysis エージェントが組み込まれています。このエージェントを`config.toml`の`run_flow`に追加することができます。
 
 ```toml
 # run-flowのオプション設定
@@ -149,17 +151,17 @@ use_data_analysis_agent = true     # デフォルトでは無効、trueに変更
 
 これに加えて、エージェントが正常に動作するために必要な依存関係をインストールする必要があります：[具体的なインストールガイド](app/tool/chart_visualization/README_ja.md##インストール)
 
-
 ## 貢献方法
 
-我々は建設的な意見や有益な貢献を歓迎します！issueを作成するか、プルリクエストを提出してください。
+我々は建設的な意見や有益な貢献を歓迎します！issue を作成するか、プルリクエストを提出してください。
 
-または @mannaandpoem に📧メールでご連絡ください：mannaandpoem@gmail.com
+または @mannaandpoem に 📧 メールでご連絡ください：mannaandpoem@gmail.com
 
-**注意**: プルリクエストを送信する前に、pre-commitツールを使用して変更を確認してください。`pre-commit run --all-files`を実行してチェックを実行します。
+**注意**: プルリクエストを送信する前に、pre-commit ツールを使用して変更を確認してください。`pre-commit run --all-files`を実行してチェックを実行します。
 
 ## コミュニティグループ
-Feishuのネットワーキンググループに参加して、他の開発者と経験を共有しましょう！
+
+Feishu のネットワーキンググループに参加して、他の開発者と経験を共有しましょう！
 
 <div align="center" style="display: flex; gap: 20px;">
     <img src="assets/community_group.jpg" alt="OpenManus 交流群" width="300" />
@@ -178,9 +180,10 @@ Feishuのネットワーキンググループに参加して、他の開発者�
 
 また、Hugging Face デモスペースをサポートしてくださった阶跃星辰 (stepfun)にも感謝いたします。
 
-OpenManusはMetaGPTのコントリビューターによって構築されました。このエージェントコミュニティに大きな感謝を！
+OpenManus は MetaGPT のコントリビューターによって構築されました。このエージェントコミュニティに大きな感謝を！
 
 ## 引用
+
 ```bibtex
 @misc{openmanus2025,
   author = {Xinbin Liang and Jinyu Xiang and Zhaoyang Yu and Jiayi Zhang and Sirui Hong and Sheng Fan and Xiao Tang},

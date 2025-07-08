@@ -200,3 +200,5 @@ cython_debug/
 
 # node
 node_modules
+
+mcp.json

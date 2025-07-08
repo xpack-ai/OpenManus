@@ -1,8 +1,8 @@
 {
-    "mcpServers": {
-      "server1": {
-        "type": "sse",
-        "url": "http://localhost:8000/sse"
-      }
+  "mcpServers": {
+    "xpack-mcp-market": {
+      "type": "sse",
+      "url": "https://api.xpack.ai/v1/mcp?apikey={YOUR_AUTH_KEY}"
     }
+  }
 }
