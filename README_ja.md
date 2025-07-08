@@ -1,196 +1,116 @@
-<p align="center">
-  <img src="assets/logo.jpg" width="200"/>
-</p>
+# OpenManus \<> XPack
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) &ensp;
+
+![Intro](./docs/assets/xpack/intro-bg.png)
 
 [English](README.md) | [中文](README_zh.md) | [한국어](README_ko.md) | 日本語
 
-[![GitHub stars](https://img.shields.io/github/stars/FoundationAgents/OpenManus?style=social)](https://github.com/FoundationAgents/OpenManus/stargazers)
-&ensp;
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) &ensp;
-[![Discord Follow](https://dcbadge.vercel.app/api/server/DYn29wFk9z?style=flat)](https://discord.gg/DYn29wFk9z)
-[![Demo](https://img.shields.io/badge/Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/lyh-917/OpenManusDemo)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15186407.svg)](https://doi.org/10.5281/zenodo.15186407)
+## はじめに
 
-# 👋 OpenManus
+このリポジトリは、**OpenManus** と **XPack.AI** の強力な統合を紹介し、世界中の数千の即座に使用可能なツールに接続することで、AIエージェントの機能を拡張する方法を実演しています。[OpenManus](https://github.com/FoundationAgents/OpenManus) の堅牢な基盤の上に構築されたこのプロジェクトは、XPackの広範なサービスマーケットプレイスを活用するためのモデルコンテキストプロトコル（MCP）サービスの設定の実用的な例を提供します。
 
-Manus は素晴らしいですが、OpenManus は*招待コード*なしでどんなアイデアも実現できます！🛫
+## OpenManus とは？
 
-私たちのチームメンバー [@Xinbin Liang](https://github.com/mannaandpoem) と [@Jinyu Xiang](https://github.com/XiangJinyu)（主要開発者）、そして [@Zhaoyang Yu](https://github.com/MoshiQAQ)、[@Jiayi Zhang](https://github.com/didiforgithub)、[@Sirui Hong](https://github.com/stellaHSR) は [@MetaGPT](https://github.com/geekan/MetaGPT) から来ました。プロトタイプは 3 時間以内に立ち上げられ、継続的に開発を進めています！
+[OpenManus](https://github.com/FoundationAgents/OpenManus) は、汎用AIエージェントを構築するためのオープンソースフレームワークです。異なる能力と動作を持つAIエージェントを作成するための柔軟なフレームワークを提供し、外部ツールやAPIへの簡単な接続を可能にし、完全にオープンソースでコミュニティ主導です。
 
-これはシンプルな実装ですので、どんな提案、貢献、フィードバックも歓迎します！
+## XPack.AI とは？
 
-OpenManus で自分だけのエージェントを楽しみましょう！
+[XPack.AI](https://xpack.ai/) は、統一されたモデルコンテキストプロトコル（MCP）を通じて、AIエージェントがグローバルサービスとツールの広大なエコシステムに接続できるプラットフォームです。XPackを使用すると、AIエージェントの機能を簡単に拡張し、金融、物流、メッセージングなど、さまざまなドメインの多様なAPIやサービスに1分以内でアクセスできます。
 
-また、UIUC と OpenManus の研究者が共同開発した[OpenManus-RL](https://github.com/OpenManus/OpenManus-RL)をご紹介できることを嬉しく思います。これは強化学習（RL）ベース（GRPO など）の LLM エージェントチューニング手法に特化したオープンソースプロジェクトです。
+## OpenManus + XPack：AIとグローバルサービスの橋渡し
 
-## プロジェクトデモ
+このプロジェクトは、OpenManusをXPackをMCPサーバーとして利用するように設定する方法を実演することに焦点を当てています。これにより、OpenManusインスタンスはXPackの豊富なツールコレクションに即座にアクセスでき、以下のことが可能になります：
 
-<video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
-
-## インストール方法
-
-インストール方法は 2 つ提供しています。方法 2（uv を使用）は、より高速なインストールと優れた依存関係管理のため推奨されています。
-
-### 方法 1：conda を使用
-
-1. 新しい conda 環境を作成します：
-
-```bash
-conda create -n open_manus python=3.12
-conda activate open_manus
-```
-
-2. リポジトリをクローンします：
-
-```bash
-git clone https://github.com/xpack-ai/OpenManus.git
-cd OpenManus
-```
-
-3. 依存関係をインストールします：
-
-```bash
-pip install -r requirements.txt
-```
-
-### 方法 2：uv を使用（推奨）
-
-1. uv（高速な Python パッケージインストーラーと管理機能）をインストールします：
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-2. リポジトリをクローンします：
-
-```bash
-git clone https://github.com/xpack-ai/OpenManus.git
-cd OpenManus
-```
-
-3. 新しい仮想環境を作成してアクティベートします：
-
-```bash
-uv venv --python 3.12
-source .venv/bin/activate  # Unix/macOSの場合
-# Windowsの場合：
-# .venv\Scripts\activate
-```
-
-4. 依存関係をインストールします：
-
-```bash
-uv pip install -r requirements.txt
-```
-
-### ブラウザ自動化ツール（オプション）
-
-```bash
-playwright install
-```
-
-## 設定
-
-OpenManus を使用するには、LLM API の設定が必要です。以下の手順に従って設定してください：
-
-1. `config`ディレクトリに`config.toml`ファイルを作成します（サンプルからコピーできます）：
-
-```bash
-cp config/config.example.toml config/config.toml
-```
-
-2. `config/config.toml`を編集して API キーを追加し、設定をカスタマイズします：
-
-```toml
-# グローバルLLM設定
-[llm]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # 実際のAPIキーに置き換えてください
-max_tokens = 4096
-temperature = 0.0
-
-# 特定のLLMモデル用のオプション設定
-[llm.vision]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # 実際のAPIキーに置き換えてください
-```
+- **多様なサービスへのアクセス：** 金融データから画像処理まで、これまで手の届かなかった機能を統合します。
+- **開発の加速：** 事前構築されたツールを活用して、AI駆動ソリューションを迅速にプロトタイプ化および構築します。
+- **ワークフローの合理化：** OpenManusのインテリジェンスとXPackの外部サービス統合を組み合わせて複雑なタスクを自動化します。
 
 ## クイックスタート
 
-OpenManus を実行する一行コマンド：
+### 1. OpenManus のインストール
+
+まず、OpenManusがインストールされていることを確認してください。まだインストールしていない場合は、以下の[インストール](./docs/installation.md)セクションのインストール手順に従ってください。
+
+### 2. XPack MCP の設定
+
+OpenManusをXPackに接続するには、MCPサーバーを設定する必要があります。これにより、OpenManusはXPackを通じて利用可能なツールを発見し、利用できるようになります。
+
+1.  **XPack認証キーの取得：**
+
+    - [XPack.AI](https://xpack.ai/) にアクセスしてアカウントを登録してください。
+    - XPackダッシュボードから認証キーを生成してください。
+
+    ![XPack.ai Dashboard](./docs/assets/xpack/xpack-dashboard.png)
+
+2.  **`mcp.json` の作成：**
+
+    - OpenManusプロジェクトの `config` ディレクトリに、`mcp.json` という名前の新しいファイルを作成します。サンプルファイルをコピーして行うことができます：
+
+    ```bash
+    cp config/mcp.example.json config/mcp.json
+    ```
+
+3.  **`config/mcp.json` の編集：**
+
+    - `config/mcp.json` ファイルを開き、XPack MCPサーバーの詳細を含むように変更します。**`YOUR_XPACK_AUTH_KEY`** を実際のXPack認証キーに置き換えてください：
+
+    ```json
+    {
+      "mcpServers": {
+        "xpack-mcp-market": {
+          "type": "sse",
+          "url": "https://api.xpack.ai/v1/mcp?apikey=YOUR_XPACK_AUTH_KEY"
+        }
+      }
+    }
+    ```
+
+### 3. MCPでOpenManusを実行
+
+設定が完了したら、MCPツール専用に設計された `main.py` スクリプトを使用してOpenManusを実行します。
 
 ```bash
 python main.py
 ```
 
-その後、ターミナルからプロンプトを入力してください！
+その後、ターミナルでアイデアやプロンプトを入力でき、OpenManusはXPackのツールを活用してタスクを実行します。
 
-MCP ツールバージョンを使用する場合は、以下を実行します：
+## 人気のタスク
+
+このセクションでは、OpenManusとXPackをさまざまなタスクに活用する実用的な例を提供します。
+
+### YouTubeコメントの分析と動画制作改善の提案
+
+YouTube動画のコメントを簡単に分析して視聴者の感情を理解し、コンテンツ改善の提案を得ることができます。
 
 ```bash
-python run_mcp.py
+python main.py
+> Please use xpack-mcp-server to read the comments on this YouTube video: https://www.youtube.com/watch?v=LPZh9BOjkQs, analyze the sentiment of the feedback, and recommend improvements for the video.
 ```
 
-開発中のマルチエージェントバージョンを試すには、以下を実行します：
+![Analyze YouTube comments Image](./docs/assets/xpack/demo-youtube-analysis.png)
+
+### 現在の金価格と影響要因
+
+最新の金価格を素早く確認し、将来のトレンドに影響を与える可能性のある主要な要因を発見します。
 
 ```bash
-python run_flow.py
+python main.py
+> Please use xpack-mcp-server to look up the current real-time price of gold and provide specific factors that may impact its price in the future.
 ```
 
-## カスタムマルチエージェントの追加
+![Current Gold Price Image](./docs/assets/xpack/demo-gold-monitor.png)
 
-現在、一般的な OpenManus エージェントに加えて、データ分析とデータ可視化タスクに適した DataAnalysis エージェントが組み込まれています。このエージェントを`config.toml`の`run_flow`に追加することができます。
+### 画像の背景除去
 
-```toml
-# run-flowのオプション設定
-[runflow]
-use_data_analysis_agent = true     # デフォルトでは無効、trueに変更すると有効化されます
+あらゆる画像の背景を瞬時に除去して、クリーンでプロフェッショナルな結果を得ることができます。
+
+![remove bg origin image](./docs/assets/xpack/stunning-quality-product.png)
+
+```bash
+python main.py
+> Please use xpack-mcp-server to remove the background from this image (https://oss.picturepicker.com/home/image/user/b60347f5-c984-4a09-a0aa-1ad6d2108056/0f1caf01-e3eb-449e-9d6d-d3d2276babc8/origin/20250708-cf563478ec5a4ffe9ced619ec62d733a-attachment.png) .
 ```
 
-これに加えて、エージェントが正常に動作するために必要な依存関係をインストールする必要があります：[具体的なインストールガイド](app/tool/chart_visualization/README_ja.md##インストール)
-
-## 貢献方法
-
-我々は建設的な意見や有益な貢献を歓迎します！issue を作成するか、プルリクエストを提出してください。
-
-または @mannaandpoem に 📧 メールでご連絡ください：mannaandpoem@gmail.com
-
-**注意**: プルリクエストを送信する前に、pre-commit ツールを使用して変更を確認してください。`pre-commit run --all-files`を実行してチェックを実行します。
-
-## コミュニティグループ
-
-Feishu のネットワーキンググループに参加して、他の開発者と経験を共有しましょう！
-
-<div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/community_group.jpg" alt="OpenManus 交流群" width="300" />
-</div>
-
-## スター履歴
-
-[![Star History Chart](https://api.star-history.com/svg?repos=FoundationAgents/OpenManus&type=Date)](https://star-history.com/#FoundationAgents/OpenManus&Date)
-
-## 謝辞
-
-このプロジェクトの基本的なサポートを提供してくれた[anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo)
-と[browser-use](https://github.com/browser-use/browser-use)に感謝します！
-
-さらに、[AAAJ](https://github.com/metauto-ai/agent-as-a-judge)、[MetaGPT](https://github.com/geekan/MetaGPT)、[OpenHands](https://github.com/All-Hands-AI/OpenHands)、[SWE-agent](https://github.com/SWE-agent/SWE-agent)にも感謝します。
-
-また、Hugging Face デモスペースをサポートしてくださった阶跃星辰 (stepfun)にも感謝いたします。
-
-OpenManus は MetaGPT のコントリビューターによって構築されました。このエージェントコミュニティに大きな感謝を！
-
-## 引用
-
-```bibtex
-@misc{openmanus2025,
-  author = {Xinbin Liang and Jinyu Xiang and Zhaoyang Yu and Jiayi Zhang and Sirui Hong and Sheng Fan and Xiao Tang},
-  title = {OpenManus: An open-source framework for building general AI agents},
-  year = {2025},
-  publisher = {Zenodo},
-  doi = {10.5281/zenodo.15186407},
-  url = {https://doi.org/10.5281/zenodo.15186407},
-}
-```
+![A yellow handbag with the background removed](./docs/assets/xpack/demo-remove-bg.png)
