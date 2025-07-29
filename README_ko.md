@@ -60,7 +60,7 @@ OpenManus를 XPack에 연결하려면 MCP 서버를 구성해야 합니다. 이�
       "mcpServers": {
         "xpack-mcp-market": {
           "type": "sse",
-          "url": "https://api.xpack.ai/v1/mcp?apikey=YOUR_XPACK_AUTH_KEY"
+          "url": "https://mcp.xpack.ai/v1/mcp?apikey=YOUR_XPACK_AUTH_KEY"
         }
       }
     }

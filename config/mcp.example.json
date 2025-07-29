@@ -2,7 +2,7 @@
   "mcpServers": {
     "xpack-mcp-market": {
       "type": "sse",
-      "url": "https://api.xpack.ai/v1/mcp?apikey={YOUR_AUTH_KEY}"
+      "url": "https://mcp.xpack.ai/v1/mcp?apikey={YOUR_AUTH_KEY}"
     }
   }
 }
